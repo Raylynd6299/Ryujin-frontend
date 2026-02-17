@@ -75,5 +75,153 @@
         "usd": "USD",
         "mxn": "MXN",
         "eur": "EUR"
+    },
+    "landing": {
+        "header": {
+            "features": "Funciones",
+            "pricing": "Precios",
+            "faq": "FAQ"
+        },
+        "hero": {
+            "badge": "Finanzas Next-Gen",
+            "titleLine1": "Tu Dinero,",
+            "titleHighlight": "Tu Poder",
+            "titleLine2": "Tu Control",
+            "description": "Controla tus gastos, elimina deudas, haz crecer tus inversiones y alcanza tus metas — todo desde un dashboard increíblemente poderoso.",
+            "cta": "Empezar Gratis",
+            "ctaSecondary": "Iniciar Sesión",
+            "stat1Value": "10K+",
+            "stat1Label": "Usuarios Activos",
+            "stat2Value": "$2.5M+",
+            "stat2Label": "Gestionados",
+            "stat3Value": "99.9%",
+            "stat3Label": "Uptime"
+        },
+        "dashboard": {
+            "totalBalance": "Balance Total",
+            "vsLastMonth": "vs mes anterior",
+            "income": "Ingresos",
+            "expenses": "Gastos",
+            "savings": "Ahorro",
+            "investments": "Inversiones",
+            "goal": "Objetivo",
+            "goalProgress": "68% alcanzado"
+        },
+        "features": {
+            "title": "Todos tus superpoderes financieros, una app",
+            "description": "Deja las hojas de cálculo. Ryujin te da las herramientas de los pros — simplificadas para la vida real.",
+            "totalControl": "Control Total",
+            "totalControlDesc": "Rastrea ingresos, gastos, cuentas y deudas con precisión milimétrica y visibilidad en tiempo real.",
+            "smartInvestments": "Inversiones Inteligentes",
+            "smartInvestmentsDesc": "Monitorea tu portafolio y analiza acciones con datos en tiempo real de mercados globales.",
+            "clearGoals": "Objetivos Claros",
+            "clearGoalsDesc": "Alcanza tus metas financieras con planes personalizados, hitos y seguimiento de progreso.",
+            "advancedAnalytics": "Análisis Avanzado",
+            "advancedAnalyticsDesc": "Visualiza patrones y tendencias con gráficos interactivos potentes e insights inteligentes.",
+            "bankSecurity": "Seguridad Bancaria",
+            "bankSecurityDesc": "Encriptación de nivel empresarial protege toda tu información financiera sensible.",
+            "instantSync": "Sincronización Instantánea",
+            "instantSyncDesc": "Accede desde cualquier dispositivo con sincronización en tiempo real en todas tus plataformas."
+        },
+        "interactive": {
+            "title": "Visualiza tus finanzas",
+            "titleHighlight": "como nunca antes",
+            "description": "Gráficos interactivos y dashboards personalizables te dan una visión completa de tu salud financiera en tiempo real. Toma decisiones informadas con datos precisos al alcance de tu mano.",
+            "check1": "Reportes mensuales automatizados",
+            "check2": "Alertas inteligentes de gastos",
+            "check3": "Proyecciones financieras con IA",
+            "check4": "Exportación de datos en múltiples formatos",
+            "chartTitle": "Gastos por Categoría",
+            "housing": "Vivienda",
+            "food": "Alimentación",
+            "transport": "Transporte",
+            "entertainment": "Entretenimiento",
+            "assetDistribution": "Distribución de Activos",
+            "stocks": "Acciones",
+            "bonds": "Bonos",
+            "etfs": "ETFs",
+            "crypto": "Crypto"
+        },
+        "pricing": {
+            "title": "Sin sorpresas. Solo buenos planes.",
+            "description": "Elige lo que te funcione. Escala cuando estés listo. Cancela cuando quieras — sin drama.",
+            "monthly": "Mensual",
+            "yearly": "Anual",
+            "popular": "Más Popular",
+            "free": {
+                "name": "Starter",
+                "price": "$0",
+                "period": "/mes",
+                "description": "Perfecto para comenzar con el seguimiento de finanzas personales.",
+                "cta": "Comenzar",
+                "feature1": "Hasta 3 cuentas",
+                "feature2": "Seguimiento básico de gastos",
+                "feature3": "Reportes mensuales",
+                "feature4": "Soporte de moneda única",
+                "feature5": "Soporte comunitario"
+            },
+            "pro": {
+                "name": "Pro",
+                "price": "$9",
+                "period": "/mes",
+                "description": "Para inversores serios que quieren análisis poderosos e insights.",
+                "cta": "Prueba Gratuita",
+                "feature1": "Cuentas ilimitadas",
+                "feature2": "Seguimiento de portafolio de inversiones",
+                "feature3": "Análisis avanzados y gráficos",
+                "feature4": "Soporte multi-moneda",
+                "feature5": "Proyecciones con IA",
+                "feature6": "Soporte prioritario",
+                "feature7": "Exportación de datos (CSV, PDF)"
+            },
+            "enterprise": {
+                "name": "Enterprise",
+                "price": "$29",
+                "period": "/mes",
+                "description": "Plataforma completa para gestión profesional de patrimonio.",
+                "cta": "Contactar Ventas",
+                "feature1": "Todo lo de Pro",
+                "feature2": "Análisis de acciones en tiempo real",
+                "feature3": "Dashboards personalizados",
+                "feature4": "Acceso API",
+                "feature5": "Gerente de cuenta dedicado",
+                "feature6": "Opciones de marca blanca"
+            }
+        },
+        "faq": {
+            "title": "Preguntas Frecuentes",
+            "description": "Todo lo que necesitas saber sobre Ryujin. ¿No encuentras la respuesta? Contacta a nuestro equipo.",
+            "q1": "¿Qué es Ryujin?",
+            "a1": "Ryujin es una plataforma integral de gestión de finanzas personales e inversiones. Te ayuda a rastrear ingresos, gastos, deudas e inversiones mientras proporciona análisis potentes y proyecciones para hacer crecer tu patrimonio.",
+            "q2": "¿Mis datos financieros están seguros?",
+            "a2": "Absolutamente. Usamos encriptación AES-256 de nivel bancario para todos los datos en reposo y TLS 1.3 para datos en tránsito. Tus credenciales se hashean con bcrypt, y nunca almacenamos ni compartimos tus datos con terceros.",
+            "q3": "¿Puedo rastrear inversiones de diferentes mercados?",
+            "a3": "¡Sí! Ryujin soporta seguimiento en tiempo real de acciones, ETFs e instrumentos de renta fija de mercados globales. Obtenemos datos de Yahoo Finance y Alpha Vantage para darte cobertura completa.",
+            "q4": "¿Ryujin soporta múltiples monedas?",
+            "a4": "Sí. Cada cuenta, fuente de ingresos e inversión puede tener su propia moneda. Ryujin convierte automáticamente a tu moneda predeterminada para las agregaciones del dashboard usando tipos de cambio actualizados regularmente.",
+            "q5": "¿Puedo exportar mis datos financieros?",
+            "a5": "Los usuarios Pro y Enterprise pueden exportar sus datos en múltiples formatos incluyendo CSV y PDF. Mantienes la propiedad total de tus datos y puedes descargarlos en cualquier momento.",
+            "q6": "¿Hay una app móvil?",
+            "a6": "Ryujin está construido como una aplicación web responsiva que funciona perfectamente en cualquier dispositivo. Una app móvil dedicada con notificaciones push para alertas de gastos está en nuestro roadmap."
+        },
+        "cta": {
+            "title": "¿Listo para subir de nivel tus finanzas?",
+            "description": "Únete a miles que ya están construyendo riqueza de forma más inteligente con Ryujin. Gratis para siempre en el plan Starter.",
+            "button": "Vamos",
+            "note": "Sin tarjeta de crédito · Listo en 2 minutos"
+        },
+        "footer": {
+            "product": "Producto",
+            "company": "Empresa",
+            "legal": "Legal",
+            "about": "Nosotros",
+            "blog": "Blog",
+            "careers": "Empleo",
+            "privacy": "Política de Privacidad",
+            "terms": "Términos de Servicio",
+            "cookies": "Política de Cookies",
+            "copyright": "© 2026 Ryujin. Todos los derechos reservados.",
+            "tagline": "Tus finanzas, tu control."
+        }
     }
 }

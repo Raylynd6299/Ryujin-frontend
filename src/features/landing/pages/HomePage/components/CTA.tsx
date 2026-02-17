@@ -1,33 +1,48 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { ROUTES } from '@/lib/constants';
+import { useTranslation } from '@/hooks/useTranslation';
 import type React from 'react';
 
 export const CTA = (): React.ReactElement => {
+    const { t } = useTranslation();
+
     return (
-        <section className="container mx-auto px-6 py-24">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-violet-600/20 via-purple-600/20 to-fuchsia-600/20 p-12 backdrop-blur-xl md:p-16">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.2),transparent_50%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(168,85,247,0.2),transparent_50%)]" />
+        <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.1] p-12 md:p-20">
+                {/* Animated gradient background */}
+                <div className="animate-gradient absolute inset-0 bg-gradient-to-r from-violet-600/30 via-fuchsia-600/30 to-cyan-600/30" />
+
+                {/* Radial glows */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(139,92,246,0.3),transparent_50%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(34,211,238,0.15),transparent_50%)]" />
+
+                {/* Dot pattern */}
+                <div
+                    className="pointer-events-none absolute inset-0 opacity-[0.06]"
+                    style={{
+                        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+                        backgroundSize: '24px 24px',
+                    }}
+                />
 
                 <div className="relative z-10 text-center">
-                    <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-                        ¿Listo para transformar tus finanzas?
+                    <h2 className="mb-5 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+                        {t('landing.cta.title')}
                     </h2>
-                    <p className="mx-auto mb-10 max-w-2xl text-xl text-gray-300">
-                        Únete a miles de usuarios que ya están construyendo su futuro financiero
-                        con Ryujin. Gratis, sin tarjeta de crédito requerida.
+                    <p className="mx-auto mb-10 max-w-xl text-lg text-gray-300">
+                        {t('landing.cta.description')}
                     </p>
                     <Link
                         to={ROUTES.REGISTER}
-                        className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-white px-10 py-5 text-lg font-bold text-violet-600 shadow-2xl shadow-violet-500/50 transition-all hover:scale-105"
+                        className="group relative inline-flex items-center gap-3 overflow-hidden rounded-2xl bg-white px-10 py-5 font-bold text-slate-900 shadow-2xl shadow-violet-500/20 transition-all hover:shadow-violet-500/40"
                     >
-                        <span className="relative z-10">Crear Cuenta Gratis</span>
-                        <ArrowRight className="relative z-10 h-6 w-6 transition-transform group-hover:translate-x-2" />
-                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-violet-100 to-transparent translate-x-[-200%] transition-transform duration-700 group-hover:translate-x-[200%]" />
+                        <span className="relative z-10">{t('landing.cta.button')}</span>
+                        <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                        <div className="animate-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-violet-200/50 to-transparent" />
                     </Link>
                     <p className="mt-6 text-sm text-gray-400">
-                        No requiere tarjeta de crédito · Configura tu cuenta en menos de 2 minutos
+                        {t('landing.cta.note')}
                     </p>
                 </div>
             </div>

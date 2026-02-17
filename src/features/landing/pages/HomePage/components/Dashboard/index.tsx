@@ -1,85 +1,110 @@
-import { TrendingUp, DollarSign, LineChart } from 'lucide-react';
-import { MiniStat } from './Components/MiniStat';
+import { TrendingUp, DollarSign, Target, ArrowUpRight } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 import type React from 'react';
 
 export const Dashboard = (): React.ReactElement => {
+    const { t } = useTranslation();
+
     return (
-        <div className="relative">
-            {/* Main Card */}
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 p-8 backdrop-blur-xl">
-                {/* Mini Line Chart */}
-                <div className="mb-6">
+        <div className="relative hidden lg:block">
+            {/* Glow behind card */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/20 via-fuchsia-500/10 to-cyan-500/10 blur-2xl" />
+
+            {/* Main card */}
+            <div className="relative overflow-hidden rounded-3xl border border-white/[0.1] bg-slate-900/80 p-7 shadow-2xl backdrop-blur-xl">
+                {/* Gradient top edge */}
+                <div className="absolute left-0 right-0 top-0 h-[2px] bg-gradient-to-r from-violet-500 via-fuchsia-500 to-cyan-500" />
+
+                {/* Balance header */}
+                <div className="mb-5">
                     <div className="mb-2 flex items-center justify-between">
-                        <span className="text-sm text-gray-400">Balance Total</span>
-                        <TrendingUp className="h-4 w-4 text-emerald-400" />
+                        <span className="text-xs font-semibold tracking-wider text-gray-500 uppercase">{t('landing.dashboard.totalBalance')}</span>
+                        <div className="flex items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-xs font-bold text-emerald-400">
+                            <ArrowUpRight className="h-3 w-3" />
+                            12.5%
+                        </div>
                     </div>
-                    <div className="mb-4 text-4xl font-bold text-white">$127,845</div>
-                    <div className="flex items-center gap-2 text-sm">
-                        <span className="text-emerald-400">+12.5%</span>
-                        <span className="text-gray-500">vs mes anterior</span>
-                    </div>
+                    <div className="text-3xl font-black tabular-nums tracking-tight text-white">$127,845</div>
+                    <div className="mt-1 text-xs text-gray-500">{t('landing.dashboard.vsLastMonth')}</div>
                 </div>
 
-                {/* SVG Line Chart */}
-                <svg viewBox="0 0 300 100" className="w-full">
-                    <defs>
-                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#8b5cf6" />
-                            <stop offset="100%" stopColor="#d946ef" />
-                        </linearGradient>
-                        <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.3" />
-                            <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
-                        </linearGradient>
-                    </defs>
-                    <path
-                        d="M 0,80 L 30,70 L 60,75 L 90,55 L 120,60 L 150,40 L 180,45 L 210,25 L 240,30 L 270,15 L 300,20"
-                        fill="none"
-                        stroke="url(#lineGradient)"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        className="animate-pulse"
-                    />
-                    <path
-                        d="M 0,80 L 30,70 L 60,75 L 90,55 L 120,60 L 150,40 L 180,45 L 210,25 L 240,30 L 270,15 L 300,20 L 300,100 L 0,100 Z"
-                        fill="url(#areaGradient)"
-                    />
-                </svg>
+                {/* Chart */}
+                <div className="relative mb-5 overflow-hidden rounded-2xl bg-white/[0.03] p-4">
+                    <svg viewBox="0 0 300 80" className="w-full" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#8b5cf6" />
+                                <stop offset="50%" stopColor="#d946ef" />
+                                <stop offset="100%" stopColor="#22d3ee" />
+                            </linearGradient>
+                            <linearGradient id="areaGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.25" />
+                                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <path
+                            d="M 0,60 C 20,55 40,50 60,52 C 80,54 90,40 120,38 C 150,36 160,30 180,28 C 200,26 220,20 240,22 C 260,24 280,12 300,10"
+                            fill="none"
+                            stroke="url(#lineGrad2)"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                        />
+                        <path
+                            d="M 0,60 C 20,55 40,50 60,52 C 80,54 90,40 120,38 C 150,36 160,30 180,28 C 200,26 220,20 240,22 C 260,24 280,12 300,10 L 300,80 L 0,80 Z"
+                            fill="url(#areaGrad2)"
+                        />
+                        {/* Dot at current value */}
+                        <circle cx="300" cy="10" r="4" fill="#22d3ee" />
+                        <circle cx="300" cy="10" r="8" fill="#22d3ee" opacity="0.2" />
+                    </svg>
+                </div>
 
-                {/* Mini Stats */}
-                <div className="mt-6 grid grid-cols-3 gap-4">
-                    <MiniStat label="Ingresos" value="$45.2K" color="text-emerald-400" />
-                    <MiniStat label="Gastos" value="$32.8K" color="text-rose-400" />
-                    <MiniStat label="Ahorro" value="$12.4K" color="text-violet-400" />
+                {/* Mini stats row */}
+                <div className="grid grid-cols-3 gap-3">
+                    <div className="rounded-xl border border-emerald-500/10 bg-emerald-500/[0.06] p-3">
+                        <div className="text-[10px] font-semibold tracking-wider text-emerald-400/70 uppercase">{t('landing.dashboard.income')}</div>
+                        <div className="mt-1 text-sm font-bold tabular-nums text-emerald-400">$45.2K</div>
+                    </div>
+                    <div className="rounded-xl border border-rose-500/10 bg-rose-500/[0.06] p-3">
+                        <div className="text-[10px] font-semibold tracking-wider text-rose-400/70 uppercase">{t('landing.dashboard.expenses')}</div>
+                        <div className="mt-1 text-sm font-bold tabular-nums text-rose-400">$32.8K</div>
+                    </div>
+                    <div className="rounded-xl border border-violet-500/10 bg-violet-500/[0.06] p-3">
+                        <div className="text-[10px] font-semibold tracking-wider text-violet-400/70 uppercase">{t('landing.dashboard.savings')}</div>
+                        <div className="mt-1 text-sm font-bold tabular-nums text-violet-400">$12.4K</div>
+                    </div>
                 </div>
             </div>
 
-            {/* Floating Cards */}
-            <div className="absolute -right-4 -top-4 animate-pulse rounded-xl border border-white/10 bg-slate-900/80 p-4 shadow-2xl backdrop-blur-xl animation-delay-1000">
+            {/* Floating card: investments */}
+            <div className="animate-float absolute -right-6 top-6 rounded-2xl border border-violet-500/20 bg-slate-900/95 p-4 shadow-2xl shadow-violet-500/10 backdrop-blur-xl">
                 <div className="flex items-center gap-3">
-                    <div className="rounded-lg bg-violet-500/20 p-2">
-                        <DollarSign className="h-5 w-5 text-violet-400" />
+                    <div className="rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 p-2.5">
+                        <DollarSign className="h-4 w-4 text-white" />
                     </div>
                     <div>
-                        <div className="text-xs text-gray-500">Inversiones</div>
-                        <div className="font-semibold text-white">+18.2%</div>
+                        <div className="text-[10px] font-semibold tracking-wider text-gray-500 uppercase">{t('landing.dashboard.investments')}</div>
+                        <div className="text-lg font-black tabular-nums text-emerald-400">+18.2%</div>
                     </div>
                 </div>
             </div>
 
-            <div className="absolute -bottom-4 -left-4 animate-pulse rounded-xl border border-white/10 bg-slate-900/80 p-4 shadow-2xl backdrop-blur-xl animation-delay-2000">
+            {/* Floating card: goal */}
+            <div className="animate-float-delayed absolute -left-6 bottom-10 rounded-2xl border border-cyan-500/20 bg-slate-900/95 p-4 shadow-2xl shadow-cyan-500/10 backdrop-blur-xl">
                 <div className="flex items-center gap-3">
-                    <div className="rounded-lg bg-emerald-500/20 p-2">
-                        <LineChart className="h-5 w-5 text-emerald-400" />
+                    <div className="rounded-xl bg-gradient-to-br from-cyan-500 to-emerald-500 p-2.5">
+                        <Target className="h-4 w-4 text-white" />
                     </div>
                     <div>
-                        <div className="text-xs text-gray-500">Objetivo</div>
-                        <div className="font-semibold text-white">68% alcanzado</div>
+                        <div className="text-[10px] font-semibold tracking-wider text-gray-500 uppercase">{t('landing.dashboard.goal')}</div>
+                        <div className="text-sm font-bold text-white">{t('landing.dashboard.goalProgress')}</div>
+                        {/* Mini progress bar */}
+                        <div className="mt-1.5 h-1.5 w-24 overflow-hidden rounded-full bg-white/10">
+                            <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     );
 };
-
-
