@@ -1,0 +1,79 @@
+{
+    "app": {
+        "name": "Ryujin",
+        "description": "Personal finance and investment management platform"
+    },
+    "auth": {
+        "login": "Login",
+        "register": "Register",
+        "logout": "Logout",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "forgotPassword": "Forgot your password?",
+        "rememberMe": "Remember me",
+        "noAccount": "Don't have an account?",
+        "haveAccount": "Already have an account?",
+        "signIn": "Sign In",
+        "signUp": "Sign Up"
+    },
+    "navigation": {
+        "dashboard": "Dashboard",
+        "finance": "Finance",
+        "investments": "Investments",
+        "goals": "Goals",
+        "settings": "Settings",
+        "income": "Income",
+        "debts": "Debts",
+        "expenses": "Expenses",
+        "accounts": "Accounts",
+        "analysis": "Analysis",
+        "portfolio": "Portfolio",
+        "holdings": "Holdings",
+        "performance": "Performance",
+        "calculator": "Calculator",
+        "stockAnalysis": "Stock Analysis"
+    },
+    "common": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "add": "Add",
+        "create": "Create",
+        "update": "Update",
+        "search": "Search",
+        "filter": "Filter",
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "confirm": "Confirm",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous",
+        "close": "Close",
+        "actions": "Actions",
+        "view": "View",
+        "export": "Export",
+        "import": "Import",
+        "refresh": "Refresh",
+        "noData": "No data available",
+        "total": "Total",
+        "subtotal": "Subtotal"
+    },
+    "validation": {
+        "required": "This field is required",
+        "invalidEmail": "Invalid email",
+        "minLength": "Must be at least {{min}} characters",
+        "maxLength": "Must be maximum {{max}} characters",
+        "passwordMismatch": "Passwords do not match",
+        "invalidFormat": "Invalid format",
+        "minValue": "Minimum value is {{min}}",
+        "maxValue": "Maximum value is {{max}}"
+    },
+    "currency": {
+        "usd": "USD",
+        "mxn": "MXN",
+        "eur": "EUR"
+    }
+}

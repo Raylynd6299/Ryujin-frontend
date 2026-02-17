@@ -1,0 +1,79 @@
+{
+    "app": {
+        "name": "Ryujin",
+        "description": "Plataforma de gestión de finanzas personales e inversiones"
+    },
+    "auth": {
+        "login": "Iniciar Sesión",
+        "register": "Registrarse",
+        "logout": "Cerrar Sesión",
+        "email": "Correo Electrónico",
+        "password": "Contraseña",
+        "confirmPassword": "Confirmar Contraseña",
+        "forgotPassword": "¿Olvidaste tu contraseña?",
+        "rememberMe": "Recordarme",
+        "noAccount": "¿No tienes cuenta?",
+        "haveAccount": "¿Ya tienes cuenta?",
+        "signIn": "Entrar",
+        "signUp": "Crear Cuenta"
+    },
+    "navigation": {
+        "dashboard": "Panel Principal",
+        "finance": "Finanzas",
+        "investments": "Inversiones",
+        "goals": "Objetivos",
+        "settings": "Configuración",
+        "income": "Ingresos",
+        "debts": "Deudas",
+        "expenses": "Gastos",
+        "accounts": "Cuentas",
+        "analysis": "Análisis",
+        "portfolio": "Portafolio",
+        "holdings": "Posiciones",
+        "performance": "Rendimiento",
+        "calculator": "Calculadora",
+        "stockAnalysis": "Análisis de Acciones"
+    },
+    "common": {
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "edit": "Editar",
+        "add": "Agregar",
+        "create": "Crear",
+        "update": "Actualizar",
+        "search": "Buscar",
+        "filter": "Filtrar",
+        "loading": "Cargando...",
+        "error": "Error",
+        "success": "Éxito",
+        "confirm": "Confirmar",
+        "back": "Volver",
+        "next": "Siguiente",
+        "previous": "Anterior",
+        "close": "Cerrar",
+        "actions": "Acciones",
+        "view": "Ver",
+        "export": "Exportar",
+        "import": "Importar",
+        "refresh": "Actualizar",
+        "noData": "No hay datos disponibles",
+        "total": "Total",
+        "subtotal": "Subtotal"
+    },
+    "validation": {
+        "required": "Este campo es requerido",
+        "invalidEmail": "Correo electrónico inválido",
+        "minLength": "Debe tener al menos {{min}} caracteres",
+        "maxLength": "Debe tener máximo {{max}} caracteres",
+        "passwordMismatch": "Las contraseñas no coinciden",
+        "invalidFormat": "Formato inválido",
+        "minValue": "El valor mínimo es {{min}}",
+        "maxValue": "El valor máximo es {{max}}"
+    },
+    "currency": {
+        "usd": "USD",
+        "mxn": "MXN",
+        "eur": "EUR"
+    }
+}
