@@ -130,6 +130,7 @@ const ChartCanvas = ({
                         name,
                     ]}
                     contentStyle={{ fontSize: 12, borderRadius: 6 }}
+                    labelStyle={{ color: '#111', fontWeight: 600 }}
                 />
                 <Legend wrapperStyle={{ fontSize: 12, paddingTop: 12 }} />
 
