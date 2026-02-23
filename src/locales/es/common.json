@@ -357,6 +357,9 @@
         "year": "Año",
         "yearUnit": "año",
         "yearsUnit": "años",
+        "tooltipStart": "Inicio",
+        "tooltipYear": "Año {{year}}",
+        "tooltipYearMonth": "Año {{year}}, Mes {{month}}",
 
         "scenarios": "Escenarios (±3%)",
         "scenariosSubtitle": "Cómo rinde tu inversión bajo distintos supuestos de retorno",

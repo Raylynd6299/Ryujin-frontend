@@ -53,6 +53,9 @@ interface ChartCanvasProps {
     pessimisticKey: string;
     optimisticKey: string;
     yearLabel: string;
+    tooltipStart: string;
+    tooltipYear: string;
+    tooltipYearMonth: string;
 }
 
 const ChartCanvas = ({
@@ -69,6 +72,9 @@ const ChartCanvas = ({
     pessimisticKey,
     optimisticKey,
     yearLabel,
+    tooltipStart,
+    tooltipYear,
+    tooltipYearMonth,
 }: ChartCanvasProps) => {
     const tickFormatter = (value: number): string => {
         if (granularity === 'monthly') {
@@ -120,10 +126,14 @@ const ChartCanvas = ({
                         if (granularity === 'monthly') {
                             const yr = Math.floor(val / 12);
                             const mo = val % 12;
-                            if (yr === 0 && mo === 0) return 'Start';
-                            return mo === 0 ? `Year ${yr}` : `Year ${yr}, Month ${mo}`;
+                            if (yr === 0 && mo === 0) return tooltipStart;
+                            return mo === 0
+                                ? tooltipYear.replace('{{year}}', String(yr))
+                                : tooltipYearMonth
+                                      .replace('{{year}}', String(yr))
+                                      .replace('{{month}}', String(mo));
                         }
-                        return `Year ${val}`;
+                        return tooltipYear.replace('{{year}}', String(val));
                     }}
                     formatter={(value: number, name: string) => [
                         formatCurrency(value, currency),
@@ -247,6 +257,9 @@ export const CalculatorChart = ({
     const pessimisticKey = t('calculator.pessimistic');
     const optimisticKey = t('calculator.optimistic');
     const yearLabel = t('calculator.year');
+    const tooltipStart = t('calculator.tooltipStart');
+    const tooltipYear = t('calculator.tooltipYear');
+    const tooltipYearMonth = t('calculator.tooltipYearMonth');
 
     const xKey = granularity === 'monthly' ? 'monthIndex' : 'year';
 
@@ -296,6 +309,9 @@ export const CalculatorChart = ({
         pessimisticKey,
         optimisticKey,
         yearLabel,
+        tooltipStart,
+        tooltipYear,
+        tooltipYearMonth,
     };
 
     return (
