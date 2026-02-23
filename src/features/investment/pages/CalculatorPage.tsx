@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,9 +10,15 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
-import { RotateCcw } from 'lucide-react';
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from '@/components/ui/popover';
+import { RotateCcw, Wallet, ChevronDown, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useCalculator } from '../hooks/useCalculator';
+import { usePortfolioSummary } from '../hooks/usePortfolio';
 import { CalculatorResults } from '../components/CalculatorResults';
 import { CalculatorChart } from '../components/CalculatorChart';
 import { ScenarioCards } from '../components/ScenarioCards';
@@ -21,6 +27,86 @@ import { GoalManager } from '../components/GoalManager';
 import { MetricTooltip } from '@/components/shared/MetricTooltip';
 import { SUPPORTED_CURRENCIES } from '../utils/calculatorUtils';
 import type { CompoundingFrequency } from '@/types/investment.types';
+
+// ─── Prefill-from-portfolio button ────────────────────────────────────────────
+
+interface PrefillButtonProps {
+    onPrefill: (totalInvestedCents: number, currency: string) => void;
+}
+
+const PrefillButton = ({ onPrefill }: PrefillButtonProps): React.ReactElement => {
+    const { t } = useTranslation();
+    const [open, setOpen] = useState(false);
+    const { data: summary, isLoading } = usePortfolioSummary();
+
+    const subtotals = summary?.subtotals ?? [];
+    const hasData = subtotals.length > 0;
+
+    const handleClick = () => {
+        if (!hasData) return;
+        // Single currency — prefill directly, no popover needed
+        if (subtotals.length === 1) {
+            onPrefill(subtotals[0].totalInvestedCents, subtotals[0].currency);
+            return;
+        }
+        // Multiple currencies — open picker
+        setOpen(true);
+    };
+
+    const handleSelect = (index: number) => {
+        const sub = subtotals[index];
+        onPrefill(sub.totalInvestedCents, sub.currency);
+        setOpen(false);
+    };
+
+    const formatAmount = (cents: number, currency: string) =>
+        new Intl.NumberFormat(undefined, {
+            style: 'currency',
+            currency,
+            maximumFractionDigits: 0,
+        }).format(cents / 100);
+
+    const trigger = (
+        <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            disabled={isLoading || !hasData}
+            onClick={subtotals.length <= 1 ? handleClick : undefined}
+            className="h-7 gap-1.5 text-xs"
+        >
+            {isLoading ? (
+                <Loader2 className="h-3 w-3 animate-spin" />
+            ) : (
+                <Wallet className="h-3 w-3" />
+            )}
+            {t('calculator.prefillFromPortfolio')}
+            {subtotals.length > 1 && <ChevronDown className="h-3 w-3 opacity-60" />}
+        </Button>
+    );
+
+    if (subtotals.length <= 1) return trigger;
+
+    return (
+        <Popover open={open} onOpenChange={setOpen}>
+            <PopoverTrigger asChild>{trigger}</PopoverTrigger>
+            <PopoverContent align="end" className="w-56 p-1">
+                {subtotals.map((sub, i) => (
+                    <button
+                        key={sub.currency}
+                        onClick={() => handleSelect(i)}
+                        className="flex w-full items-center justify-between rounded-sm px-2 py-1.5 text-sm hover:bg-accent"
+                    >
+                        <span className="font-medium">{sub.currency}</span>
+                        <span className="text-muted-foreground tabular-nums">
+                            {formatAmount(sub.totalInvestedCents, sub.currency)}
+                        </span>
+                    </button>
+                ))}
+            </PopoverContent>
+        </Popover>
+    );
+};
 
 // ─── Form field sub-component ─────────────────────────────────────────────────
 
@@ -80,15 +166,18 @@ export const CalculatorPage = (): React.ReactElement => {
                     <CardHeader>
                         <div className="flex items-center justify-between">
                             <CardTitle className="text-base">{t('calculator.calculate')}</CardTitle>
-                            <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={calc.reset}
-                                className="h-7 gap-1.5 text-xs text-muted-foreground"
-                            >
-                                <RotateCcw className="h-3 w-3" />
-                                {t('calculator.reset')}
-                            </Button>
+                            <div className="flex items-center gap-2">
+                                <PrefillButton onPrefill={calc.prefillFromPortfolio} />
+                                <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={calc.reset}
+                                    className="h-7 gap-1.5 text-xs text-muted-foreground"
+                                >
+                                    <RotateCcw className="h-3 w-3" />
+                                    {t('calculator.reset')}
+                                </Button>
+                            </div>
                         </div>
                     </CardHeader>
                     <CardContent className="space-y-4">
