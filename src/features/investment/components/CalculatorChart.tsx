@@ -341,7 +341,7 @@ export const CalculatorChart = ({
             </Card>
 
             <Dialog open={expanded} onOpenChange={setExpanded}>
-                <DialogContent className="max-w-[90vw] p-6 w-[90vw]">
+                <DialogContent className="!max-w-[90vw] w-[90vw] p-6">
                     <DialogHeader>
                         <DialogTitle className="text-base">{t('calculator.growthChart')}</DialogTitle>
                     </DialogHeader>
