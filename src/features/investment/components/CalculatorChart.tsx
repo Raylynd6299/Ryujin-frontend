@@ -341,11 +341,11 @@ export const CalculatorChart = ({
             </Card>
 
             <Dialog open={expanded} onOpenChange={setExpanded}>
-                <DialogContent className="max-w-5xl p-6">
+                <DialogContent className="max-w-[90vw] p-6 w-[90vw]">
                     <DialogHeader>
                         <DialogTitle className="text-base">{t('calculator.growthChart')}</DialogTitle>
                     </DialogHeader>
-                    <ChartCanvas {...sharedProps} height={500} />
+                    <ChartCanvas {...sharedProps} height={600} />
                 </DialogContent>
             </Dialog>
         </>
