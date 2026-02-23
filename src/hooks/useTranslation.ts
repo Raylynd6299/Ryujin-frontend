@@ -15,6 +15,7 @@ export const useTranslation = (namespace: string = 'common') => {
 
     return {
         t,
+        i18n,
         changeLanguage,
         currentLanguage,
         isSpanish: currentLanguage === 'es',

@@ -145,7 +145,7 @@ export const CategoryForm = ({ defaultValues, onSubmit, isPending, isEdit }: Cat
                     />
                 </div>
 
-                <Button type="submit" className="w-full" disabled={isPending}>
+                <Button type="submit" className="w-full ring-1 ring-white/20" disabled={isPending}>
                     {isPending ? (
                         <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />

@@ -55,27 +55,27 @@ export const categoryService = {
 
 export const incomeService = {
     list: async (params?: ListParams): Promise<FinancePaginatedResponse<IncomeSource>> => {
-        const response = await api.get<ApiResponse<FinancePaginatedResponse<IncomeSource>>>('/v1/incomes', { params });
+        const response = await api.get<ApiResponse<FinancePaginatedResponse<IncomeSource>>>('/v1/income-sources', { params });
         return response.data.data;
     },
     getById: async (id: string): Promise<IncomeSource> => {
-        const response = await api.get<ApiResponse<IncomeSource>>(`/v1/incomes/${id}`);
+        const response = await api.get<ApiResponse<IncomeSource>>(`/v1/income-sources/${id}`);
         return response.data.data;
     },
     create: async (data: CreateIncomeSourceRequest): Promise<IncomeSource> => {
-        const response = await api.post<ApiResponse<IncomeSource>>('/v1/incomes', data);
+        const response = await api.post<ApiResponse<IncomeSource>>('/v1/income-sources', data);
         return response.data.data;
     },
     update: async (id: string, data: UpdateIncomeSourceRequest): Promise<IncomeSource> => {
-        const response = await api.put<ApiResponse<IncomeSource>>(`/v1/incomes/${id}`, data);
+        const response = await api.put<ApiResponse<IncomeSource>>(`/v1/income-sources/${id}`, data);
         return response.data.data;
     },
     deactivate: async (id: string, data: DeactivateIncomeSourceRequest): Promise<IncomeSource> => {
-        const response = await api.patch<ApiResponse<IncomeSource>>(`/v1/incomes/${id}/deactivate`, data);
+        const response = await api.patch<ApiResponse<IncomeSource>>(`/v1/income-sources/${id}/deactivate`, data);
         return response.data.data;
     },
     delete: async (id: string): Promise<void> => {
-        await api.delete(`/v1/incomes/${id}`);
+        await api.delete(`/v1/income-sources/${id}`);
     },
 };
 

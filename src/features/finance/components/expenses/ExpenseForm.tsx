@@ -225,7 +225,7 @@ export const ExpenseForm = ({ defaultValues, onSubmit, isPending, isEdit }: Expe
                     )}
                 />
 
-                <Button type="submit" className="w-full" disabled={isPending}>
+                <Button type="submit" className="w-full ring-1 ring-white/20" disabled={isPending}>
                     {isPending
                         ? t('common.saving')
                         : isEdit

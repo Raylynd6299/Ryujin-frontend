@@ -38,12 +38,12 @@ export const UserMenu = () => {
                 <div className="p-2">
                     <div className="px-2 py-1.5">
                         <p className="text-sm font-medium">
-                            {user?.first_name || user?.last_name
-                                ? `${user.first_name || ''} ${user.last_name || ''}`.trim()
-                                : 'Usuario'}
+                            {user?.firstName || user?.lastName
+                                ? `${user.firstName || ''} ${user.lastName || ''}`.trim()
+                                : user?.email ?? 'User'}
                         </p>
                         <p className="text-xs text-muted-foreground">
-                            {user?.email || 'usuario@example.com'}
+                            {user?.email}
                         </p>
                     </div>
                 </div>

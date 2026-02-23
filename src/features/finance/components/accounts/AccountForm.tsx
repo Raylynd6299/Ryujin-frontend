@@ -175,7 +175,7 @@ export const AccountForm = ({ defaultValues, onSubmit, isPending, isEdit }: Acco
                     </div>
                 )}
 
-                <Button type="submit" className="w-full" disabled={isPending}>
+                <Button type="submit" className="w-full ring-1 ring-white/20" disabled={isPending}>
                     {isPending
                         ? t('common.saving')
                         : isEdit

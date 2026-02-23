@@ -4,7 +4,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 
 export const Breadcrumbs = () => {
     const location = useLocation();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     // Parse pathname into breadcrumb segments
     const pathnames = location.pathname.split('/').filter((x) => x);
@@ -18,7 +18,8 @@ export const Breadcrumbs = () => {
                 const path = `/${pathnames.slice(0, index + 1).join('/')}`;
 
                 // Translate segment key if it exists
-                const label = t(`navigation.${segment}`) || segment;
+                const key = `navigation.${segment}`;
+                const label = i18n.exists(key, { ns: 'common' }) ? t(key) : segment;
 
                 return (
                     <div key={path} className="flex items-center gap-2">

@@ -286,7 +286,7 @@ export const DebtForm = ({ defaultValues, onSubmit, isPending, isEdit }: DebtFor
                     )}
                 />
 
-                <Button type="submit" className="w-full" disabled={isPending}>
+                <Button type="submit" className="w-full ring-1 ring-white/20" disabled={isPending}>
                     {isPending
                         ? t('common.saving')
                         : isEdit
