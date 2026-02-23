@@ -115,14 +115,15 @@ const ChartCanvas = ({
                     axisLine={false}
                 />
                 <Tooltip
-                    labelFormatter={(value: number) => {
+                    labelFormatter={(value) => {
+                        const val = Number(value);
                         if (granularity === 'monthly') {
-                            const yr = Math.floor(value / 12);
-                            const mo = value % 12;
+                            const yr = Math.floor(val / 12);
+                            const mo = val % 12;
                             if (yr === 0 && mo === 0) return 'Start';
                             return mo === 0 ? `Year ${yr}` : `Year ${yr}, Month ${mo}`;
                         }
-                        return `Year ${value}`;
+                        return `Year ${val}`;
                     }}
                     formatter={(value: number, name: string) => [
                         formatCurrency(value, currency),
