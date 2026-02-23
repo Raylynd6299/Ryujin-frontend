@@ -113,7 +113,7 @@ export const CalculatorResults = ({ finalPoint, inputs, cagr }: Props) => {
                 <div className="pt-3 text-xs text-muted-foreground space-y-0.5">
                     <p>
                         {t('calculator.timePeriod')}: {inputs.timePeriodYears}{' '}
-                        {inputs.timePeriodYears === 1 ? 'year' : 'years'}
+                        {inputs.timePeriodYears === 1 ? t('calculator.yearUnit') : t('calculator.yearsUnit')}
                     </p>
                     <p>
                         {t('calculator.annualReturn')}: {inputs.annualReturnRate}%

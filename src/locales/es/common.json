@@ -32,6 +32,7 @@
         "profile": "Perfil",
         "dashboard": "Panel Principal",
         "finance": "Finanzas",
+        "investment": "Inversiones",
         "investments": "Inversiones",
         "goals": "Objetivos",
         "settings": "Configuración",
@@ -354,6 +355,8 @@
         "gains": "Ganancias",
         "realValueLine": "Valor Real",
         "year": "Año",
+        "yearUnit": "año",
+        "yearsUnit": "años",
 
         "scenarios": "Escenarios (±3%)",
         "scenariosSubtitle": "Cómo rinde tu inversión bajo distintos supuestos de retorno",

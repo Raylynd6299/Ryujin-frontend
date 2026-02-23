@@ -354,6 +354,8 @@
         "gains": "Gains",
         "realValueLine": "Real Value",
         "year": "Year",
+        "yearUnit": "year",
+        "yearsUnit": "years",
 
         "scenarios": "Scenarios (±3%)",
         "scenariosSubtitle": "How your investment performs under different return assumptions",
