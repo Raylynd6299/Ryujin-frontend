@@ -42,7 +42,8 @@
         "holdings": "Holdings",
         "performance": "Performance",
         "calculator": "Calculator",
-        "stockAnalysis": "Stock Analysis"
+        "stockAnalysis": "Stock Analysis",
+        "categories": "Categories"
     },
     "finance": {
         "name": "Name",
@@ -132,6 +133,23 @@
             "savings": "Savings",
             "cash": "Cash",
             "wallet": "Wallet"
+        },
+        "categoryType": "Type",
+        "categoryIcon": "Icon",
+        "categoryColor": "Color",
+        "categoryNamePlaceholder": "e.g. Food, Transport...",
+        "addCategory": "Add Category",
+        "editCategory": "Edit Category",
+        "categoriesDescription": "Organize your incomes and expenses",
+        "noCategories": "No categories yet",
+        "addFirstCategory": "Add your first category",
+        "defaultCategory": "Default",
+        "customCategory": "Custom",
+        "pickDate": "Pick a date",
+        "categoryTypes": {
+            "income": "Income",
+            "expense": "Expense",
+            "both": "Both"
         }
     },
     "common": {

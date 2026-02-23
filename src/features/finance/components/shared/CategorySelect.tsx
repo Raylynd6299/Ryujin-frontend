@@ -23,11 +23,11 @@ export const CategorySelect = ({
     placeholder,
 }: CategorySelectProps) => {
     const { t } = useTranslation();
-    const { data } = useCategories({ limit: 100 });
+    const { data = [] } = useCategories();
 
     const categories = filterType
-        ? data?.data.filter((c) => c.type === filterType || c.type === 'both')
-        : (data?.data ?? []);
+        ? data.filter((c) => c.type === filterType || c.type === 'both')
+        : data;
 
     return (
         <Select value={value} onValueChange={onValueChange}>

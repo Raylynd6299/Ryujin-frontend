@@ -26,6 +26,7 @@ export const ROUTES = {
     FINANCE_EXPENSES: '/app/finance/expenses',
     FINANCE_ACCOUNTS: '/app/finance/accounts',
     FINANCE_DEBTS: '/app/finance/debts',
+    FINANCE_CATEGORIES: '/app/finance/categories',
     FINANCE_ANALYSIS: '/app/finance/analysis',
 
     // Investment

@@ -65,4 +65,4 @@
 
 ---
 
-*Última actualización: 2026-02-16*
+*Última actualización: 2026-02-21*

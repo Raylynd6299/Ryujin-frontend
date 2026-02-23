@@ -15,6 +15,7 @@ import { IncomesPage } from '@/features/finance/pages/IncomesPage';
 import { ExpensesPage } from '@/features/finance/pages/ExpensesPage';
 import { AccountsPage } from '@/features/finance/pages/AccountsPage';
 import { DebtsPage } from '@/features/finance/pages/DebtsPage';
+import { CategoriesPage } from '@/features/finance/pages/CategoriesPage';
 import { FinanceAnalysisPage } from '@/features/finance/pages/FinanceAnalysisPage';
 
 // Investment pages
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
                     {
                         path: 'debts',
                         element: <AppLayout><DebtsPage /></AppLayout>,
+                    },
+                    {
+                        path: 'categories',
+                        element: <AppLayout><CategoriesPage /></AppLayout>,
                     },
                     {
                         path: 'analysis',

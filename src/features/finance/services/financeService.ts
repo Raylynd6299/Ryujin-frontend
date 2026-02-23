@@ -34,8 +34,8 @@ export interface ListParams {
 // ─── Categories ───────────────────────────────────────────────────────────────
 
 export const categoryService = {
-    list: async (params?: ListParams): Promise<FinancePaginatedResponse<Category>> => {
-        const response = await api.get<ApiResponse<FinancePaginatedResponse<Category>>>('/v1/categories', { params });
+    list: async (params?: ListParams): Promise<Category[]> => {
+        const response = await api.get<ApiResponse<Category[]>>('/v1/categories', { params });
         return response.data.data;
     },
     create: async (data: CreateCategoryRequest): Promise<Category> => {

@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { categoryService } from '../services/financeService';
-import type { CreateCategoryRequest, UpdateCategoryRequest } from '@/types/finance.types';
+import type { Category, CreateCategoryRequest, UpdateCategoryRequest } from '@/types/finance.types';
 
 export const CATEGORY_KEYS = {
     all: ['categories'] as const,
@@ -8,7 +8,7 @@ export const CATEGORY_KEYS = {
 };
 
 export const useCategories = (params?: { page?: number; limit?: number }) => {
-    return useQuery({
+    return useQuery<Category[]>({
         queryKey: CATEGORY_KEYS.list(params),
         queryFn: () => categoryService.list(params),
     });

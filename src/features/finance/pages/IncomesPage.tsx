@@ -1,13 +1,7 @@
 import { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import {
-    Sheet,
-    SheetContent,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-} from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { IncomeTable } from '../components/incomes/IncomeTable';
 import { IncomeForm } from '../components/incomes/IncomeForm';
 import { useIncomes, useCreateIncome } from '../hooks/useIncomes';
@@ -23,7 +17,12 @@ export const IncomesPage = () => {
     const createMutation = useCreateIncome();
 
     const handleCreate = (values: IncomeFormValues) => {
-        createMutation.mutate(values, { onSuccess: () => setOpen(false) });
+        createMutation.mutate(values, {
+            onSuccess: () => {
+                setOpen(false);
+                createMutation.reset();
+            },
+        });
     };
 
     return (
@@ -33,26 +32,25 @@ export const IncomesPage = () => {
                     <h1 className="text-2xl font-bold">{t('navigation.income')}</h1>
                     <p className="text-muted-foreground">{t('finance.incomesDescription')}</p>
                 </div>
-                <Sheet open={open} onOpenChange={setOpen}>
-                    <SheetTrigger asChild>
-                        <Button>
-                            <Plus className="mr-2 h-4 w-4" />
-                            {t('finance.addIncome')}
-                        </Button>
-                    </SheetTrigger>
-                    <SheetContent>
-                        <SheetHeader>
-                            <SheetTitle>{t('finance.addIncome')}</SheetTitle>
-                        </SheetHeader>
-                        <div className="mt-6 px-1">
-                            <IncomeForm
-                                onSubmit={handleCreate}
-                                isPending={createMutation.isPending}
-                            />
-                        </div>
-                    </SheetContent>
-                </Sheet>
+                <Button onClick={() => setOpen(true)}>
+                    <Plus className="mr-2 h-4 w-4" />
+                    {t('finance.addIncome')}
+                </Button>
             </div>
+
+            <Sheet open={open} onOpenChange={setOpen}>
+                <SheetContent>
+                    <SheetHeader>
+                        <SheetTitle>{t('finance.addIncome')}</SheetTitle>
+                    </SheetHeader>
+                    <div className="mt-6 px-1 overflow-y-auto">
+                        <IncomeForm
+                            onSubmit={handleCreate}
+                            isPending={createMutation.isPending}
+                        />
+                    </div>
+                </SheetContent>
+            </Sheet>
 
             {isLoading ? (
                 <div className="flex items-center justify-center py-12">

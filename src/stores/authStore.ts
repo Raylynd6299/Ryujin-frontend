@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import type { User, AuthTokens } from '@/types';
 import { STORAGE_KEYS } from '@/lib/constants';
+import { authService } from '@/features/auth/services/authService';
 
 interface AuthStore {
     user: User | null;
@@ -11,7 +12,7 @@ interface AuthStore {
     setAuth: (user: User, tokens: AuthTokens) => void;
     clearAuth: () => void;
     setLoading: (loading: boolean) => void;
-    initializeAuth: () => void;
+    initializeAuth: () => Promise<void>;
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({
@@ -36,16 +37,29 @@ export const useAuthStore = create<AuthStore>((set) => ({
         set({ isLoading: loading });
     },
 
-    initializeAuth: () => {
-        const token = localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN);
+    initializeAuth: async () => {
+        const accessToken = localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN);
         const refreshToken = localStorage.getItem(STORAGE_KEYS.REFRESH_TOKEN);
 
-        if (token && refreshToken) {
-            // TODO: Validate token with API
-            // For now, just set loading to false
-            set({ isLoading: false, isAuthenticated: true, tokens: { accessToken: token, refreshToken } });
-        } else {
+        if (!accessToken || !refreshToken) {
             set({ isLoading: false, isAuthenticated: false });
+            return;
+        }
+
+        try {
+            // Validate token with the API — the refresh interceptor will handle
+            // token rotation silently if the access token has expired
+            const user = await authService.getMe();
+            set({
+                user,
+                tokens: { accessToken, refreshToken },
+                isAuthenticated: true,
+                isLoading: false,
+            });
+        } catch {
+            localStorage.removeItem(STORAGE_KEYS.AUTH_TOKEN);
+            localStorage.removeItem(STORAGE_KEYS.REFRESH_TOKEN);
+            set({ user: null, tokens: null, isAuthenticated: false, isLoading: false });
         }
     },
 }));

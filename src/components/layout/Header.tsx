@@ -7,6 +7,7 @@ import { NotificationBell } from '../shared/NotificationBell';
 import { UserMenu } from '../shared/UserMenu';
 import { APP_NAME } from '@/lib/constants';
 import { useIsMobile } from '@/hooks/useMediaQuery';
+import { RyujinLogo } from '@/components/shared/RyujinLogo';
 
 export const Header = () => {
     const { toggleSidebar } = useSidebarStore();
@@ -25,7 +26,7 @@ export const Header = () => {
 
             {/* Logo */}
             <div className="flex items-center gap-2">
-                <span className="text-2xl">🐉</span>
+                <RyujinLogo size={28} />
                 <span className="text-xl font-bold text-foreground">{APP_NAME}</span>
             </div>
 

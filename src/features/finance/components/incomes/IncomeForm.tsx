@@ -1,7 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { format, parseISO } from 'date-fns';
+import { es } from 'date-fns/locale';
+import { CalendarIcon, Loader2 } from 'lucide-react';
 import {
     Form,
     FormControl,
@@ -19,6 +22,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
+import { cn } from '@/lib/utils';
 import { CategorySelect } from '../shared/CategorySelect';
 import { CurrencySelect } from '../shared/CurrencySelect';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -49,6 +55,7 @@ const RECURRENCES = ['none', 'daily', 'weekly', 'biweekly', 'monthly', 'quarterl
 
 export const IncomeForm = ({ defaultValues, onSubmit, isPending, isEdit }: IncomeFormProps) => {
     const { t } = useTranslation();
+    const [calendarOpen, setCalendarOpen] = useState(false);
 
     const form = useForm<IncomeFormValues>({
         resolver: zodResolver(incomeSchema),
@@ -201,9 +208,38 @@ export const IncomeForm = ({ defaultValues, onSubmit, isPending, isEdit }: Incom
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>{t('finance.startDate')}</FormLabel>
-                                <FormControl>
-                                    <Input type="date" {...field} />
-                                </FormControl>
+                                <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
+                                    <PopoverTrigger asChild>
+                                        <FormControl>
+                                            <Button
+                                                variant="outline"
+                                                className={cn(
+                                                    'w-full justify-start text-left font-normal',
+                                                    !field.value && 'text-muted-foreground'
+                                                )}
+                                            >
+                                                <CalendarIcon className="mr-2 h-4 w-4" />
+                                                {field.value
+                                                    ? format(parseISO(field.value), 'PPP', { locale: es })
+                                                    : t('finance.pickDate')}
+                                            </Button>
+                                        </FormControl>
+                                    </PopoverTrigger>
+                                    <PopoverContent className="w-auto p-0" align="start">
+                                        <Calendar
+                                            mode="single"
+                                            locale={es}
+                                            selected={field.value ? parseISO(field.value) : undefined}
+                                            onSelect={(date) => {
+                                                if (date) {
+                                                    field.onChange(format(date, 'yyyy-MM-dd'));
+                                                    setCalendarOpen(false);
+                                                }
+                                            }}
+                                            initialFocus
+                                        />
+                                    </PopoverContent>
+                                </Popover>
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -229,11 +265,16 @@ export const IncomeForm = ({ defaultValues, onSubmit, isPending, isEdit }: Incom
                 />
 
                 <Button type="submit" className="w-full" disabled={isPending}>
-                    {isPending
-                        ? t('common.saving')
-                        : isEdit
-                          ? t('common.update')
-                          : t('common.create')}
+                    {isPending ? (
+                        <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            {t('common.saving')}
+                        </>
+                    ) : isEdit ? (
+                        t('common.update')
+                    ) : (
+                        t('common.create')
+                    )}
                 </Button>
             </form>
         </Form>

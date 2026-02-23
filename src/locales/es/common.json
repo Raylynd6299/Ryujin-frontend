@@ -42,7 +42,8 @@
         "holdings": "Posiciones",
         "performance": "Rendimiento",
         "calculator": "Calculadora",
-        "stockAnalysis": "Análisis de Acciones"
+        "stockAnalysis": "Análisis de Acciones",
+        "categories": "Categorías"
     },
     "finance": {
         "name": "Nombre",
@@ -132,6 +133,23 @@
             "savings": "Caja de ahorro",
             "cash": "Efectivo",
             "wallet": "Billetera"
+        },
+        "categoryType": "Tipo",
+        "categoryIcon": "Ícono",
+        "categoryColor": "Color",
+        "categoryNamePlaceholder": "Ej. Comida, Transporte...",
+        "addCategory": "Agregar categoría",
+        "editCategory": "Editar categoría",
+        "categoriesDescription": "Organizá tus ingresos y gastos",
+        "noCategories": "Todavía no tenés categorías",
+        "addFirstCategory": "Agregá tu primera categoría",
+        "defaultCategory": "Por defecto",
+        "customCategory": "Personalizada",
+        "pickDate": "Elegí una fecha",
+        "categoryTypes": {
+            "income": "Ingreso",
+            "expense": "Gasto",
+            "both": "Ambos"
         }
     },
     "common": {
