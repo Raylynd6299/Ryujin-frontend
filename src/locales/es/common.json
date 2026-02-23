@@ -349,6 +349,7 @@
         "realValueTooltip": "Lo que el Valor Final vale en términos de poder adquisitivo de hoy, descontando la inflación. Esto es lo que tu plata va a poder comprar realmente.",
 
         "growthChart": "Crecimiento a lo Largo del Tiempo",
+        "expandChart": "Expandir gráfico",
         "invested": "Invertido",
         "gains": "Ganancias",
         "realValueLine": "Valor Real",

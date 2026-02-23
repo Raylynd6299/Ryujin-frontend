@@ -349,6 +349,7 @@
         "realValueTooltip": "What the Final Value is worth in today's purchasing power, after accounting for inflation. This is what your money will actually buy.",
 
         "growthChart": "Growth Over Time",
+        "expandChart": "Expand chart",
         "invested": "Invested",
         "gains": "Gains",
         "realValueLine": "Real Value",
