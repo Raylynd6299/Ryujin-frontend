@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { format, parseISO } from 'date-fns';
+import { es } from 'date-fns/locale';
+import { CalendarIcon } from 'lucide-react';
 import {
     Dialog,
     DialogContent,
@@ -17,6 +21,9 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
+import { cn } from '@/lib/utils';
 import { CurrencySelect } from '@/features/finance/components/shared/CurrencySelect';
 import { useAddContribution } from '../hooks/useGoals';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -40,6 +47,7 @@ interface ContributionDialogProps {
 export const ContributionDialog = ({ goal, open, onOpenChange }: ContributionDialogProps) => {
     const { t } = useTranslation();
     const addMutation = useAddContribution(goal.id);
+    const [dateOpen, setDateOpen] = useState(false);
 
     const today = new Date().toISOString().split('T')[0];
 
@@ -114,9 +122,38 @@ export const ContributionDialog = ({ goal, open, onOpenChange }: ContributionDia
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>{t('goals.contributionDate')}</FormLabel>
-                                    <FormControl>
-                                        <Input type="date" {...field} />
-                                    </FormControl>
+                                    <Popover open={dateOpen} onOpenChange={setDateOpen}>
+                                        <PopoverTrigger asChild>
+                                            <FormControl>
+                                                <Button
+                                                    variant="outline"
+                                                    className={cn(
+                                                        'w-full justify-start text-left font-normal',
+                                                        !field.value && 'text-muted-foreground'
+                                                    )}
+                                                >
+                                                    <CalendarIcon className="mr-2 h-4 w-4" />
+                                                    {field.value
+                                                        ? format(parseISO(field.value), 'PPP', { locale: es })
+                                                        : t('finance.pickDate')}
+                                                </Button>
+                                            </FormControl>
+                                        </PopoverTrigger>
+                                        <PopoverContent className="w-auto p-0" align="start">
+                                            <Calendar
+                                                mode="single"
+                                                locale={es}
+                                                selected={field.value ? parseISO(field.value) : undefined}
+                                                onSelect={(date) => {
+                                                    if (date) {
+                                                        field.onChange(format(date, 'yyyy-MM-dd'));
+                                                        setDateOpen(false);
+                                                    }
+                                                }}
+                                                initialFocus
+                                            />
+                                        </PopoverContent>
+                                    </Popover>
                                     <FormMessage />
                                 </FormItem>
                             )}

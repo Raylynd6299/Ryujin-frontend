@@ -1,7 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { format, parseISO } from 'date-fns';
+import { es } from 'date-fns/locale';
+import { CalendarIcon } from 'lucide-react';
 import {
     Form,
     FormControl,
@@ -19,6 +22,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
+import { cn } from '@/lib/utils';
 import { CurrencySelect } from '@/features/finance/components/shared/CurrencySelect';
 import { useTranslation } from '@/hooks/useTranslation';
 import type { Goal } from '@/types/goal.types';
@@ -46,6 +52,7 @@ interface GoalFormProps {
 
 export const GoalForm = ({ defaultValues, onSubmit, isPending, isEdit }: GoalFormProps) => {
     const { t } = useTranslation();
+    const [deadlineOpen, setDeadlineOpen] = useState(false);
 
     const form = useForm<GoalFormValues>({
         resolver: zodResolver(goalSchema),
@@ -194,9 +201,38 @@ export const GoalForm = ({ defaultValues, onSubmit, isPending, isEdit }: GoalFor
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>{t('goals.deadline')}</FormLabel>
-                            <FormControl>
-                                <Input type="date" {...field} value={field.value ?? ''} />
-                            </FormControl>
+                            <Popover open={deadlineOpen} onOpenChange={setDeadlineOpen}>
+                                <PopoverTrigger asChild>
+                                    <FormControl>
+                                        <Button
+                                            variant="outline"
+                                            className={cn(
+                                                'w-full justify-start text-left font-normal',
+                                                !field.value && 'text-muted-foreground'
+                                            )}
+                                        >
+                                            <CalendarIcon className="mr-2 h-4 w-4" />
+                                            {field.value
+                                                ? format(parseISO(field.value), 'PPP', { locale: es })
+                                                : t('finance.pickDate')}
+                                        </Button>
+                                    </FormControl>
+                                </PopoverTrigger>
+                                <PopoverContent className="w-auto p-0" align="start">
+                                    <Calendar
+                                        mode="single"
+                                        locale={es}
+                                        selected={field.value ? parseISO(field.value) : undefined}
+                                        onSelect={(date) => {
+                                            if (date) {
+                                                field.onChange(format(date, 'yyyy-MM-dd'));
+                                                setDeadlineOpen(false);
+                                            }
+                                        }}
+                                        initialFocus
+                                    />
+                                </PopoverContent>
+                            </Popover>
                             <FormMessage />
                         </FormItem>
                     )}
