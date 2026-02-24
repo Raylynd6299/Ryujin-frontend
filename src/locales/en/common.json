@@ -400,6 +400,40 @@
         "goalCancel": "Cancel",
         "goalNoGoals": "No goals added yet. Add one to mark milestones on the chart."
     },
+    "goals": {
+        "pageDescription": "Track your purchase goals and savings progress",
+        "addGoal": "Add Goal",
+        "editGoal": "Edit Goal",
+        "noGoals": "No goals yet",
+        "addFirstGoal": "Add your first goal",
+        "name": "Name",
+        "namePlaceholder": "e.g. New laptop, Trip to Japan",
+        "description": "Description",
+        "descriptionPlaceholder": "Optional description",
+        "icon": "Icon",
+        "targetAmount": "Target Amount",
+        "currency": "Currency",
+        "priority": "Priority",
+        "deadline": "Deadline",
+        "contributed": "Contributed",
+        "target": "Target",
+        "missing": "Remaining",
+        "estimatedCompletion": "Est. completion",
+        "completed": "Completed",
+        "addContribution": "Contribute",
+        "saveContribution": "Save Contribution",
+        "contributionAmount": "Amount",
+        "contributionDate": "Date",
+        "contributionNotes": "Notes",
+        "contributionNotesPlaceholder": "Optional note for this contribution",
+        "contributions": "Contributions",
+        "noContributions": "No contributions yet",
+        "priorities": {
+            "low": "Low",
+            "medium": "Medium",
+            "high": "High"
+        }
+    },
     "landing": {
         "header": {
             "features": "Features",

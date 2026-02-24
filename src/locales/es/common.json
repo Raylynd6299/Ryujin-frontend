@@ -401,6 +401,40 @@
         "goalCancel": "Cancelar",
         "goalNoGoals": "Sin metas todavía. Agregá una para marcar hitos en el gráfico."
     },
+    "goals": {
+        "pageDescription": "Seguí tus objetivos de compra y el progreso de tu ahorro",
+        "addGoal": "Agregar objetivo",
+        "editGoal": "Editar objetivo",
+        "noGoals": "Todavía no tenés objetivos",
+        "addFirstGoal": "Agregá tu primer objetivo",
+        "name": "Nombre",
+        "namePlaceholder": "Ej. Nueva laptop, Viaje a Japón",
+        "description": "Descripción",
+        "descriptionPlaceholder": "Descripción opcional",
+        "icon": "Ícono",
+        "targetAmount": "Monto objetivo",
+        "currency": "Moneda",
+        "priority": "Prioridad",
+        "deadline": "Fecha límite",
+        "contributed": "Contribuido",
+        "target": "Objetivo",
+        "missing": "Restante",
+        "estimatedCompletion": "Compl. estimada",
+        "completed": "Completado",
+        "addContribution": "Contribuir",
+        "saveContribution": "Guardar contribución",
+        "contributionAmount": "Monto",
+        "contributionDate": "Fecha",
+        "contributionNotes": "Notas",
+        "contributionNotesPlaceholder": "Nota opcional para esta contribución",
+        "contributions": "Contribuciones",
+        "noContributions": "Todavía no hay contribuciones",
+        "priorities": {
+            "low": "Baja",
+            "medium": "Media",
+            "high": "Alta"
+        }
+    },
     "landing": {
         "header": {
             "features": "Funciones",
