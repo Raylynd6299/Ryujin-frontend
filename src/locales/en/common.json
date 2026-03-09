@@ -152,6 +152,35 @@
             "income": "Income",
             "expense": "Expense",
             "both": "Both"
+        },
+        "indices": {
+            "savings_ratio": "Savings Ratio",
+            "debt_ratio": "Debt Ratio",
+            "unnecessary_expense_ratio": "Unnecessary Expenses",
+            "investment_ratio": "Investment Ratio",
+            "emergency_coverage": "Emergency Coverage",
+            "liquidity_ratio": "Liquidity Ratio",
+            "payment_capacity": "Payment Capacity",
+            "net_cash_flow": "Net Cash Flow",
+            "net_worth": "Net Worth",
+            "savings_amount": "Monthly Savings"
+        },
+        "analysis": {
+            "title": "Financial Analysis",
+            "description": "Track your financial health with 9 key indicators",
+            "summaryTitle": "Monthly Summary",
+            "indicesTitle": "Financial Health Indices",
+            "currencyWarning": "Mixed currencies detected. Results are calculated in your primary currency.",
+            "loading": "Loading financial data...",
+            "error": "Failed to load financial data",
+            "retry": "Retry",
+            "noData": "No financial data available. Add some incomes or expenses to see your financial health.",
+            "summary": {
+                "totalIncome": "Total Income",
+                "totalExpenses": "Total Expenses",
+                "netCashFlow": "Net Cash Flow",
+                "savingsAmount": "Savings Amount"
+            }
         }
     },
     "common": {
@@ -432,6 +461,71 @@
             "low": "Low",
             "medium": "Medium",
             "high": "High"
+        }
+    },
+    "settings": {
+        "title": "Settings",
+        "subtitle": "Manage your profile and preferences",
+        "tabs": {
+            "profile": "Profile",
+            "preferences": "Preferences",
+            "security": "Security"
+        },
+        "profile": {
+            "title": "Profile",
+            "description": "Update your personal information",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "emailHint": "Email cannot be changed",
+            "locale": "Language",
+            "locales": {
+                "es": "Spanish",
+                "en": "English"
+            },
+            "avatar": "Avatar",
+            "saveChanges": "Save Changes",
+            "savedSuccess": "Profile updated successfully"
+        },
+        "preferences": {
+            "title": "Preferences",
+            "description": "Configure your default currencies and appearance",
+            "currencies": "Default Currencies",
+            "currenciesDescription": "These currencies are used for dashboard aggregations and reports",
+            "savingsCurrency": "Savings Currency",
+            "investmentCurrency": "Investment Currency",
+            "savedCurrencies": "Currencies updated successfully",
+            "appearance": "Appearance",
+            "appearanceDescription": "Choose how Ryujin looks on your device",
+            "theme": "Theme",
+            "themes": {
+                "light": "Light",
+                "dark": "Dark",
+                "system": "System"
+            }
+        },
+        "security": {
+            "title": "Security",
+            "description": "Change your password to keep your account secure",
+            "currentPassword": "Current Password",
+            "newPassword": "New Password",
+            "confirmPassword": "Confirm New Password",
+            "changePassword": "Change Password",
+            "passwordChanged": "Password changed successfully",
+            "strength": "Strength",
+            "strengthLevels": {
+                "weak": "Weak",
+                "fair": "Fair",
+                "good": "Good",
+                "strong": "Strong"
+            },
+            "requirements": {
+                "minLength": "At least 8 characters",
+                "uppercase": "One uppercase letter",
+                "lowercase": "One lowercase letter",
+                "number": "One number",
+                "special": "One special character"
+            }
         }
     },
     "landing": {

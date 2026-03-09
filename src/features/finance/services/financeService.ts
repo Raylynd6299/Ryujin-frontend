@@ -20,6 +20,8 @@ import type {
     UpdateAccountRequest,
     UpdateBalanceRequest,
     FinancePaginatedResponse,
+    IndicesResponse,
+    FinanceSummary,
 } from '@/types/finance.types';
 
 // ─── Query Params ─────────────────────────────────────────────────────────────
@@ -157,4 +159,16 @@ export const accountService = {
     delete: async (id: string): Promise<void> => {
         await api.delete(`/v1/accounts/${id}`);
     },
+};
+
+// ─── Finance Indices ───────────────────────────────────────────────────────────
+
+export const getFinanceIndices = async (): Promise<IndicesResponse> => {
+    const response = await api.get<ApiResponse<IndicesResponse>>('/v1/finance/indices');
+    return response.data.data;
+};
+
+export const getFinanceSummary = async (): Promise<FinanceSummary> => {
+    const response = await api.get<ApiResponse<FinanceSummary>>('/v1/finance/summary');
+    return response.data.data;
 };

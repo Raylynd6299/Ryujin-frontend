@@ -153,6 +153,35 @@
             "income": "Ingreso",
             "expense": "Gasto",
             "both": "Ambos"
+        },
+        "indices": {
+            "savings_ratio": "Tasa de Ahorro",
+            "debt_ratio": "Ratio de Deuda",
+            "unnecessary_expense_ratio": "Gastos Innecesarios",
+            "investment_ratio": "Ratio de Inversión",
+            "emergency_coverage": "Cobertura de Emergencia",
+            "liquidity_ratio": "Ratio de Liquidez",
+            "payment_capacity": "Capacidad de Pago",
+            "net_cash_flow": "Flujo Neto",
+            "net_worth": "Patrimonio Neto",
+            "savings_amount": "Ahorro Mensual"
+        },
+        "analysis": {
+            "title": "Análisis Financiero",
+            "description": "Seguí tu salud financiera con 9 indicadores clave",
+            "summaryTitle": "Resumen Mensual",
+            "indicesTitle": "Índices de Salud Financiera",
+            "currencyWarning": "Se detectaron monedas mixtas. Los resultados se calculan en tu moneda principal.",
+            "loading": "Cargando datos financieros...",
+            "error": "Error al cargar los datos financieros",
+            "retry": "Reintentar",
+            "noData": "No hay datos financieros disponibles. Agregá ingresos o gastos para ver tu salud financiera.",
+            "summary": {
+                "totalIncome": "Ingresos Totales",
+                "totalExpenses": "Gastos Totales",
+                "netCashFlow": "Flujo Neto",
+                "savingsAmount": "Ahorro"
+            }
         }
     },
     "dashboard": {
@@ -433,6 +462,71 @@
             "low": "Baja",
             "medium": "Media",
             "high": "Alta"
+        }
+    },
+    "settings": {
+        "title": "Configuración",
+        "subtitle": "Administrá tu perfil y preferencias",
+        "tabs": {
+            "profile": "Perfil",
+            "preferences": "Preferencias",
+            "security": "Seguridad"
+        },
+        "profile": {
+            "title": "Perfil",
+            "description": "Actualizá tu información personal",
+            "firstName": "Nombre",
+            "lastName": "Apellido",
+            "email": "Correo Electrónico",
+            "emailHint": "El email no se puede cambiar",
+            "locale": "Idioma",
+            "locales": {
+                "es": "Español",
+                "en": "Inglés"
+            },
+            "avatar": "Avatar",
+            "saveChanges": "Guardar cambios",
+            "savedSuccess": "Perfil actualizado correctamente"
+        },
+        "preferences": {
+            "title": "Preferencias",
+            "description": "Configurá tus monedas predeterminadas y la apariencia",
+            "currencies": "Monedas Predeterminadas",
+            "currenciesDescription": "Estas monedas se usan para las agregaciones del panel y los reportes",
+            "savingsCurrency": "Moneda de Ahorros",
+            "investmentCurrency": "Moneda de Inversiones",
+            "savedCurrencies": "Monedas actualizadas correctamente",
+            "appearance": "Apariencia",
+            "appearanceDescription": "Elegí cómo se ve Ryujin en tu dispositivo",
+            "theme": "Tema",
+            "themes": {
+                "light": "Claro",
+                "dark": "Oscuro",
+                "system": "Sistema"
+            }
+        },
+        "security": {
+            "title": "Seguridad",
+            "description": "Cambiá tu contraseña para mantener tu cuenta segura",
+            "currentPassword": "Contraseña Actual",
+            "newPassword": "Nueva Contraseña",
+            "confirmPassword": "Confirmá la Nueva Contraseña",
+            "changePassword": "Cambiar Contraseña",
+            "passwordChanged": "Contraseña cambiada correctamente",
+            "strength": "Fortaleza",
+            "strengthLevels": {
+                "weak": "Débil",
+                "fair": "Regular",
+                "good": "Buena",
+                "strong": "Fuerte"
+            },
+            "requirements": {
+                "minLength": "Al menos 8 caracteres",
+                "uppercase": "Una letra mayúscula",
+                "lowercase": "Una letra minúscula",
+                "number": "Un número",
+                "special": "Un carácter especial"
+            }
         }
     },
     "landing": {

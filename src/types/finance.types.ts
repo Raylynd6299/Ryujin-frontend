@@ -212,3 +212,31 @@ export interface UpdateBalanceRequest {
     balance: number;
     currency: string;
 }
+
+// ─── Finance Indices ───────────────────────────────────────────────────────────
+
+export type IndexStatus = 'green' | 'yellow' | 'red';
+
+export interface FinanceIndex {
+    name: string;
+    value: number;
+    status: IndexStatus;
+    label: string;
+}
+
+export interface IndicesResponse {
+    indices: FinanceIndex[];
+    currencyWarning: boolean;
+}
+
+export interface FinanceSummary {
+    totalIncomeCents: number;
+    totalIncomeDecimal: number;
+    totalExpensesCents: number;
+    totalExpensesDecimal: number;
+    netCashFlowCents: number;
+    netCashFlowDecimal: number;
+    savingsAmountCents: number;
+    savingsAmountDecimal: number;
+    currency: string;
+}
