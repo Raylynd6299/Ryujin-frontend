@@ -1,217 +1,185 @@
-# Ryujin Frontend
+# 🐉 Ryujin — Frontend
 
-Plataforma de gestión de finanzas personales e inversiones construida con React, TypeScript, y Tailwind CSS.
+<p align="center">
+  <img src="./Ryujin-portada.png" alt="Ryujin — Gestión de Finanzas Personales" width="100%" />
+</p>
 
-## 🚀 Stack Tecnológico
+<p align="center">
+  <strong>React SPA for the Ryujin personal finance platform</strong><br/>
+  React 19 · TypeScript · Vite 7 · Tailwind CSS v4 · shadcn/ui
+</p>
 
-- **React 19** - UI Library
-- **TypeScript** - Type Safety
-- **Vite 7** - Build Tool
-- **React Router v6** - Routing
-- **Zustand** - State Management
-- **TanStack Query** - Data Fetching
-- **Tailwind CSS v4** - Styling
-- **shadcn/ui** - UI Components
-- **lucide-react** - Icons
-- **react-i18next** - Internacionalización
-- **Axios** - HTTP Client
-
-## 📁 Estructura del Proyecto
-
-```
-src/
-├── app/                    # Aplicación principal
-├── features/               # Módulos por funcionalidad
-│   ├── auth/              # Autenticación
-│   ├── dashboard/         # Dashboard
-│   ├── finance/           # Finanzas personales
-│   ├── investment/        # Inversiones
-│   └── goals/             # Objetivos
-├── components/            # Componentes compartidos
-│   ├── layout/           # Layout components
-│   ├── ui/               # shadcn/ui components
-│   └── shared/           # Custom shared components
-├── hooks/                 # Custom hooks
-├── lib/                   # Utilidades
-├── routes/                # Configuración de rutas
-├── stores/                # Zustand stores
-├── types/                 # TypeScript types
-├── locales/               # Traducciones (ES/EN)
-└── services/              # API clients
-```
-
-## 🎨 Features Implementados
-
-### ✅ Sistema de Tema
-- Dark mode / Light mode / System
-- Paleta de colores morados personalizada
-- Persiste en localStorage
-- Detección automática de preferencia del sistema
-
-### ✅ Layout Base
-- **Sidebar colapsable** (240px / 64px)
-  - Navegación completa con iconos
-  - Submenús expandibles
-  - Estado persiste en localStorage
-  - Responsive (overlay en mobile)
-  
-- **Header**
-  - Logo + nombre de la app
-  - Breadcrumbs de navegación
-  - Toggle de tema (3 opciones)
-  - Toggle de idioma (ES/EN)
-  - Notificaciones con badge
-  - Menú de usuario
-
-- **AppLayout**
-  - Grid responsive
-  - Transiciones suaves
-  - Scroll optimizado
-
-### ✅ Routing
-- React Router configurado
-- Rutas protegidas con autenticación
-- Páginas placeholder para todos los módulos
-- Redirect automático a dashboard
-- 404 page
-
-### ✅ Internacionalización (i18n)
-- Soporte para Español e Inglés
-- Hook personalizado `useTranslation`
-- Persiste idioma en localStorage
-- Traducciones organizadas por namespace
-
-### ✅ State Management
-- **themeStore** - Gestión de tema
-- **sidebarStore** - Estado del sidebar
-- **authStore** - Autenticación (placeholder)
-
-## 🏃 Comandos
-
-```bash
-# Desarrollo
-npm run dev
-
-# Build producción
-npm run build
-
-# Preview build
-npm run preview
-
-# Lint
-npm run lint
-```
-
-## 🎯 Próximos Pasos
-
-Ver [docs/TODOs.md](./docs/TODOs.md) para la lista completa de tareas pendientes.
-
-### Crítico
-- [ ] Implementar formularios de Login y Register
-- [ ] Conectar con API del backend
-- [ ] Implementar autenticación real (JWT)
-- [ ] Agregar validación de formularios
-
-### Importante
-- [ ] Implementar módulo de Finanzas
-- [ ] Implementar módulo de Inversiones
-- [ ] Agregar gráficas y visualizaciones
-- [ ] Implementar sistema de notificaciones
-
-## 🌈 Paleta de Colores
-
-### Morados (Primary)
-- **Violet 500** `rgb(139 92 246)` - Principal
-- **Violet 600** `rgb(124 58 237)` - Hover
-- **Violet 700** `rgb(109 40 217)` - Contraste oscuro
-- **Violet 400** `rgb(167 139 250)` - Acentos
-
-## 📝 Convenciones de Código
-
-- Usar **functional components** con hooks
-- Nombrar componentes en **PascalCase**
-- Hooks personalizados con prefijo **use**
-- Archivos de componentes: **ComponentName.tsx**
-- Exports nombrados, no default
-- Tipos TypeScript explícitos
-- Tailwind classes ordenadas lógicamente
-
-## 🔗 Links Útiles
-
-- [Documentación de diseño](../docs/plans/2026-02-16-frontend-layout-design.md)
-- [TODOs pendientes](./docs/TODOs.md)
-- [Planeación general](../docs/PLANNING.md)
+<p align="center">
+  <a href="https://github.com/YOUR_USER/ryujin-backend">
+    ⚙️ Backend Repo
+  </a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/YOUR_USER/ryujin">
+    🐳 Infrastructure (Docker)
+  </a>
+</p>
 
 ---
 
-**Última actualización:** 2026-02-16
+## Stack
 
-Currently, two official plugins are available:
+| Concern          | Technology              |
+| ---------------- | ----------------------- |
+| UI Library       | React 19                |
+| Language         | TypeScript (strict)     |
+| Build Tool       | Vite 7                  |
+| Routing          | React Router v6         |
+| Client State     | Zustand                 |
+| Server State     | TanStack Query          |
+| Styling          | Tailwind CSS v4         |
+| UI Components    | shadcn/ui               |
+| Icons            | lucide-react            |
+| HTTP Client      | Axios                   |
+| Internationali.  | react-i18next (ES / EN) |
+| Linting/Format   | Biome                   |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Project Structure
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── app/                    # App root, providers, global setup
+├── features/               # Feature modules (co-located components, hooks, services)
+│   ├── auth/               # Login, register, JWT handling
+│   ├── dashboard/          # KPI cards, overview charts
+│   ├── finance/            # Income, expenses, debts, accounts, categories
+│   ├── investment/         # Holdings, portfolio, stock quotes
+│   └── goals/              # Purchase goals
+├── components/
+│   ├── layout/             # AppLayout, Sidebar, Header, Breadcrumbs
+│   ├── ui/                 # shadcn/ui base components
+│   └── shared/             # Custom shared business components
+├── hooks/                  # Cross-feature custom hooks
+├── lib/                    # Third-party library configs (axios, query client)
+├── routes/                 # Route definitions and protected route wrappers
+├── stores/                 # Zustand stores (theme, sidebar, auth)
+├── types/                  # Global TypeScript type definitions
+├── locales/                # i18n translations (en.json, es.json)
+└── services/               # API client functions
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Features Implemented
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### ✅ Theme System
+- Dark mode / Light mode / System auto-detect
+- Custom violet color palette
+- Persists in `localStorage`
+
+### ✅ Base Layout
+- **Collapsible Sidebar** (240px / 64px)
+  - Full navigation with icons
+  - Expandable submenus
+  - State persists in `localStorage`
+  - Responsive (overlay on mobile)
+- **Header**
+  - Logo + app name
+  - Navigation breadcrumbs
+  - Theme toggle (3 options)
+  - Language toggle (ES/EN)
+  - Notification badge
+  - User menu
+
+### ✅ Routing
+- React Router configured with protected routes
+- Auto-redirect to dashboard on login
+- 404 page
+
+### ✅ Internationalization (i18n)
+- Spanish and English support
+- Custom `useTranslation` hook
+- Language persists in `localStorage`
+- Translations organized by namespace
+
+### ✅ State Management
+- **themeStore** — theme management
+- **sidebarStore** — sidebar open/collapse state
+- **authStore** — authentication state (placeholder → real JWT integration in progress)
+
+---
+
+## Commands
+
+```bash
+# Development server
+npm run dev
+
+# Production build
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint + format
+npm run lint
 ```
+
+---
+
+## Environment Variables
+
+```bash
+cp .env.example .env
+```
+
+| Variable        | Description              |
+| --------------- | ------------------------ |
+| `VITE_API_URL`  | Backend API base URL     |
+
+---
+
+## Color Palette
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| Violet 400 | `rgb(167 139 250)` | Accents, highlights |
+| Violet 500 | `rgb(139 92 246)` | Primary brand color |
+| Violet 600 | `rgb(124 58 237)` | Hover states |
+| Violet 700 | `rgb(109 40 217)` | Dark contrast |
+
+---
+
+## Code Conventions
+
+- **Functional components** only — no class components
+- **PascalCase** for component files and names (`IncomeList.tsx`)
+- **camelCase** prefixed with `use` for hooks (`useIncomes.ts`)
+- **Named exports** — no default exports
+- **TypeScript strict mode** — no `any`
+- All user-facing text through `t()` from react-i18next — never hardcode strings
+- Components stay under ~150 lines — break down if larger
+- Page-level code splitting with `React.lazy()` + `Suspense`
+
+---
+
+## Roadmap
+
+See [docs/TODOs.md](./docs/TODOs.md) for the full task list.
+
+### In Progress
+- [ ] Login and Register forms
+- [ ] Real JWT authentication flow
+- [ ] Form validation (Zod)
+- [ ] Backend API integration
+
+### Next
+- [ ] Finance module (income, expenses, debts)
+- [ ] Investment module (holdings, portfolio charts)
+- [ ] Push notifications (Web Push API)
+- [ ] Charts (Recharts + Tremor)
+
+---
+
+## Related Repos
+
+| Repo | Description |
+|------|-------------|
+| [ryujin-backend](https://github.com/YOUR_USER/ryujin-backend) | Go REST API |
+| [ryujin](https://github.com/YOUR_USER/ryujin) | Infrastructure — Docker Compose + shared docs |
